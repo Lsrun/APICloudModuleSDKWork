@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/mo_aotao_reader_shape_dialog_top"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp13"
+        android:background="@drawable/mo_aotao_reader_shape_dialog_top"
+        android:gravity="center_vertical">
+
+
+        <custom_view.RoundImageView
+            android:id="@+id/img_head"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@mipmap/mo_aotao_reader_icon_head"
+            custom:rtype="circle" />
+
+
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/read_content_default"
+            android:textColor="#989898" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp13"
+            android:gravity="center_vertical"
+            android:text="@string/read_content_default"
+            android:textColor="#989898" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp13"
+        android:layout_marginLeft="@dimen/dp70"
+        android:layout_marginRight="@dimen/dp13"
+        android:gravity="center_vertical"
+        android:textColor="#262626" />
+
+    <View style="@style/view_line_short" />
+
+
+</LinearLayout>

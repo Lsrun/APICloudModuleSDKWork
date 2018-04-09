@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <!-- 圆角图片 -->
+    <attr name="borderRadius" format="dimension" />
+    <attr name="rtype">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+
+    <!-- 圆角图片 -->
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" />
+        <attr name="rtype" />
+    </declare-styleable>
+
+</resources>

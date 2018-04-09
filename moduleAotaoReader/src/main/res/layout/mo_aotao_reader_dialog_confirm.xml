@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dp40"
+    android:layout_marginStart="@dimen/dp40">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10"
+        android:background="@drawable/mo_aotao_reader_shape_dialog"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp58"
+            android:gravity="center"
+            android:text="系统提示"
+            android:textColor="@color/text_title"
+            android:textSize="@dimen/sp20" />
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_margin="@dimen/dp20"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:padding="15dp"
+            android:text="提示内容"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/sp18" />
+
+        <View style="@style/view_line" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp55"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="@dimen/dp187"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:text="取消"
+                android:textColor="#a4a4a4"
+                android:textSize="@dimen/sp18" />
+
+            <View style="@style/view_line_vertical" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="@dimen/dp187"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:text="确定"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp18" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_close"
+        android:layout_width="@dimen/dp35"
+        android:layout_height="@dimen/dp35"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/mo_aotao_reader_shape_close_circle_gray"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/dp15"
+            android:layout_height="@dimen/dp15"
+            android:src="@mipmap/mo_aotao_reader_icon_close" />
+    </LinearLayout>
+
+</RelativeLayout>

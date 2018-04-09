@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--想法弹窗，底部效果-->
+    <corners
+        android:topLeftRadius="@dimen/dp10"
+        android:topRightRadius="@dimen/dp10" />
+
+    <solid android:color="#f2edf3" />
+
+</shape>

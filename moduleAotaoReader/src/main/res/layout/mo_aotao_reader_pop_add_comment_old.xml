@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp340"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical">
+
+    <!-- 中间椭圆 -->
+
+    <LinearLayout
+        android:layout_width="@dimen/dp96"
+        android:layout_height="@dimen/dp90"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/mo_aotao_reader_shape_btn_add"
+        android:gravity="center"
+        android:orientation="vertical"></LinearLayout>
+
+    <!-- 底部带边线背景_屏幕宽度 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/dp26"
+        android:background="@drawable/mo_aotao_reader_shape_rectangle">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp40"
+            android:background="@drawable/mo_aotao_reader_shape_rectangle">
+
+            <ImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:src="@mipmap/mo_aotao_reader_icon_edit_reply" />
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp60"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="你此刻的想法~"
+                android:lineSpacingExtra="5dp"
+                android:maxLength="500"
+                android:textColor="@color/text_content"
+                android:textColorHint="@color/text_hint"
+                android:textSize="@dimen/sp20" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/dp20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_tent_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#b0b0b0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="#b0b0b0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="#b0b0b0" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- 白色背景遮挡中间按钮部分出现的横线 -->
+
+    <LinearLayout
+        android:layout_width="@dimen/dp84"
+        android:layout_height="@dimen/dp2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp26"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"></LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_close"
+        android:layout_width="@dimen/dp35"
+        android:layout_height="@dimen/dp35"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp15"
+        android:background="@drawable/mo_aotao_reader_shape_close_circle"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/dp15"
+            android:layout_height="@dimen/dp15"
+            android:src="@mipmap/mo_aotao_reader_icon_close" />
+    </LinearLayout>
+
+
+</RelativeLayout>

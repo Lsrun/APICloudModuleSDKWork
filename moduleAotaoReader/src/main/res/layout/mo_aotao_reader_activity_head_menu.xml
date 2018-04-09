@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp70"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp35"
+        android:layout_marginLeft="5dp"
+        android:background="@null"
+        android:src="@mipmap/mo_aotao_reader_return_button" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tv_auto_close"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp35"
+        android:layout_marginLeft="@dimen/dp20"
+        android:background="@drawable/mo_aotao_reader_shape_btn"
+        android:gravity="center"
+        android:paddingEnd="@dimen/dp10"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="@dimen/dp10"
+        android:text="看法开"
+        android:textColor="#a64cbe"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:id="@+id/tv_auto_subscribe"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp35"
+        android:layout_marginLeft="2dp"
+        android:background="@drawable/mo_aotao_reader_shape_btn"
+        android:gravity="center"
+        android:paddingEnd="@dimen/dp10"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="@dimen/dp10"
+        android:text="自动订阅"
+        android:textColor="#a64cbe"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:id="@+id/tv_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp35"
+        android:layout_marginLeft="2dp"
+        android:background="@drawable/mo_aotao_reader_shape_btn"
+        android:gravity="center"
+        android:paddingEnd="@dimen/dp20"
+        android:paddingStart="@dimen/dp20"
+        android:text="购买"
+        android:textColor="#a64cbe"
+        android:textSize="@dimen/sp16" />
+
+    <TextView
+        android:id="@+id/tv_award"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp35"
+        android:layout_marginLeft="2dp"
+        android:background="@drawable/mo_aotao_reader_shape_btn"
+        android:gravity="center"
+        android:paddingEnd="@dimen/dp20"
+        android:paddingStart="@dimen/dp20"
+        android:text="打赏"
+        android:textColor="#a64cbe"
+        android:textSize="@dimen/sp16" />
+
+    <ImageView
+        android:id="@+id/img_bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="@dimen/dp20"
+        android:gravity="center"
+        android:src="@mipmap/mo_aotao_reader_icon_book_mark" />
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp20"
+        android:drawableLeft="@mipmap/mo_aotao_reader_menu"
+        android:gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

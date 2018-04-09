@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#E25754</color>
+
+    <!-- 窗体标题背景色 -->
+    <color name="bg_form_head">#f66e44</color>
+
+
+    <!-- 纯色 -->
+    <color name="white">#ffffff</color>
+    <color name="black">#000</color>
+    <color name="blue">#499BF7</color>
+    <color name="gray">#cdcdcd</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="reader_border_default">#949398</color>
+    <color name="reader_border_selected">#ac4fc1</color>
+
+
+    <color name="read_dialog_bg">#2C2C2C</color>
+    <color name="read_setting_dialog_bg">#37363c</color>
+    <color name="read_dialog_button_select">#E25754</color>
+
+    <color name="read_bg_default">#CEC29C</color>
+    <color name="read_bg_1">#CCEBCC</color>
+    <color name="read_bg_2">#37342F</color>
+    <color name="read_bg_3">#D1CEC5</color>
+    <color name="read_bg_4">#001C27</color>
+
+
+    <color name="read_font_default">#2C2C2C</color>
+    <color name="read_font_1">#2F332D</color>
+    <color name="read_font_2">#92918C</color>
+    <color name="read_font_3">#383429</color>
+    <color name="read_font_4">#627176</color>
+
+
+    <!-- ***********************文本字体颜色*********************** -->
+    <!-- 文本颜色 -->
+    <!-- 标题 -->
+    <color name="text_title">#414141</color>
+    <!-- 内容 -->
+    <color name="text_content">#666666</color>
+    <!-- 提示文本 -->
+    <color name="text_hint">#cccccc</color>
+    <!-- 数字 -->
+    <color name="text_number">#fde401</color>
+
+    <!-- 金额文本 -->
+    <color name="text_money">#fd7d00</color>
+
+    <!-- 分割线颜色 -->
+    <color name="devider_color">#ebebeb</color>
+
+    <color name="form_top_type_text">#3f3f3f</color>
+    <color name="form_top_type_text_1">#ffba00</color>
+
+</resources>

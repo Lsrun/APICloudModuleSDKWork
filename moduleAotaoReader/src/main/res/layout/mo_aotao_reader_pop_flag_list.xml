@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mo_aotao_reader_shape_dialog"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_listview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp340"
+            android:background="@drawable/mo_aotao_reader_shape_dialog">
+
+            <!-- 想法显示的listView -->
+            
+            <ListView
+                android:id="@+id/xListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp10"
+                android:divider="@color/devider_color"
+                android:dividerHeight="@dimen/dp1" />
+
+            <LinearLayout
+                android:id="@+id/ll_nodata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="@dimen/dp100"
+                    android:src="@mipmap/mo_aotao_reader_icon_nodata"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_nodata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:gravity="center"
+                    android:text="暂无想法，欢迎添加哦~"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/sp20" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_add_comment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp70"
+            android:background="@drawable/mo_aotao_reader_shape_dialog_bottom"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginLeft="@dimen/dp13"
+                android:src="@mipmap/mo_aotao_reader_icon_edit" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp13"
+                android:layout_marginRight="@dimen/dp13"
+                android:gravity="center_vertical"
+                android:text="你此刻的想法"
+                android:textColor="@color/text_content"
+                android:textColorHint="@color/text_hint" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="@dimen/dp8">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/mo_aotao_reader_return_button" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20" />
+
+        <TextView
+            android:id="@+id/tv_qr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/buy_queren"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp18" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_zuopin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <TextView
+            android:id="@+id/buy_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_zhangjie"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <TextView
+            android:id="@+id/tv_buy_zhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_old_price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <TextView
+            android:id="@+id/tv_old_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_now_price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <TextView
+            android:id="@+id/tv_new_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_buy_user"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <TextView
+            android:id="@+id/tv_buy_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_user_money"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <TextView
+            android:id="@+id/tv_yu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="@string/page_ding"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <CheckBox
+            android:id="@+id/check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击阅读时，自动订阅本书的其他VIP章节"
+            android:textColor="@color/reader_border_default"
+            android:textSize="@dimen/sp16" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:text="阅读券"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18" />
+
+        <CheckBox
+            android:id="@+id/check_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp16" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

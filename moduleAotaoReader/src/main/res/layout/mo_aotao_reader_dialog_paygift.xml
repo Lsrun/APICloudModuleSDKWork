@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_pop_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_red_packet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/dp20"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/mo_aotao_reader_shape_dialog"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp60"
+            android:background="@drawable/mo_aotao_reader_shape_dialog_gift_top"
+            android:gravity="center"
+            android:text="请选择你要打赏的礼物~"
+            android:textColor="@color/black" />
+
+        <GridView
+            android:id="@+id/gv_gift"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:numColumns="4"
+            android:scrollbars="none" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="4dp"
+            android:text="选择数量" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="X1" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X2" />
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X3" />
+
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X4" />
+
+            <RadioButton
+                android:id="@+id/rb5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X5" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginBottom="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:background="@drawable/mo_aotao_reader_shape_btn_gift"
+            android:text="打赏"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20" />
+
+
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="@dimen/dp80"
+        android:layout_height="@dimen/dp80"
+        android:layout_below="@id/ll_red_packet"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:src="@mipmap/mo_aotao_reader_pay_gift_icon_close" />
+
+
+</RelativeLayout>

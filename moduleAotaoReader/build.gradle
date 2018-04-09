@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    productFlavors {
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    provided files('../app/libs/apiEngine v1.1.0.jar')
+    compile 'com.android.support:support-v4:25.0.1'
+    compile files('libs/okhttp-3.2.0.jar')
+    compile files('libs/gson-2.2.4.jar')
+    compile files('libs/okio-1.6.0.jar')
+}
