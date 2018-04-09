@@ -2970,7 +2970,28 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                                 // 本地存在 该cid
                                 boolean hhh = DbUtil.getInstence(ReadActivity.this).isHas(chapterid, mAid, mUid);
 
-                                if (hhh) {
+
+                                //Lsrun 判断是否缓存章节内容
+                                int lsrun_my = 0;
+                                String chapterJson = BaseData.getCache("chapterJson" + mAid + chapterid);  /// 读取章节缓存
+                                if (CommFun.isNullOrEmpty(chapterJson)) {
+                                    /// 缓存为空
+                                    String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", mUid, mAid, chapterid);
+                                    String fullPath = savePath + "/" + fileName;
+                                    chapterJson = FileUtils.readFile(fullPath);
+
+                                    log("执行读取文件------");
+
+                                }
+                                log("读取到的文件======" + chapterJson);
+                                if (!CommFun.isNullOrEmpty(chapterJson)) {
+                                    ///  数据存在
+                                    ChapterInfo chapterInfo = getChapterInfo(chapterJson);
+                                    lsrun_my = chapterInfo.getIsmy();
+                                }
+
+
+                                if (hhh || lsrun_my == 1) {
                                     // 直接阅读
                                     getChapter(chapterid, true);
 
@@ -3086,7 +3107,27 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                         getChapter(previousCid, true);
                     } else {
                         if (indexVip == 1) {
-                            if (indexMy == 1) {
+
+                            //Lsrun 判断是否缓存章节内容
+                            int lsrun_my = 0;
+                            String chapterJson = BaseData.getCache("chapterJson" + mAid + previousCid);  /// 读取章节缓存
+                            if (CommFun.isNullOrEmpty(chapterJson)) {
+                                /// 缓存为空
+                                String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", mUid, mAid, previousCid);
+                                String fullPath = savePath + "/" + fileName;
+                                chapterJson = FileUtils.readFile(fullPath);
+
+                                log("执行读取文件------");
+
+                            }
+                            log("读取到的文件======" + chapterJson);
+                            if (!CommFun.isNullOrEmpty(chapterJson)) {
+                                ///  数据存在
+                                ChapterInfo chapterInfo = getChapterInfo(chapterJson);
+                                lsrun_my = chapterInfo.getIsmy();
+                            }
+
+                            if (indexMy == 1 || lsrun_my == 1) {
                                 getChapter(previousCid, true);
                             } else {
                                 showVipBy(mAid, bookList.getPrevious());
@@ -3144,8 +3185,28 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                         } else {
                             // 是vip
                             if (indexVip == 1) {
+
+                                //Lsrun 判断是否缓存章节内容
+                                int lsrun_my = 0;
+                                String chapterJson = BaseData.getCache("chapterJson" + mAid + previousCid);  /// 读取章节缓存
+                                if (CommFun.isNullOrEmpty(chapterJson)) {
+                                    /// 缓存为空
+                                    String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", mUid, mAid, previousCid);
+                                    String fullPath = savePath + "/" + fileName;
+                                    chapterJson = FileUtils.readFile(fullPath);
+
+                                    log("执行读取文件------");
+
+                                }
+                                log("读取到的文件======" + chapterJson);
+                                if (!CommFun.isNullOrEmpty(chapterJson)) {
+                                    ///  数据存在
+                                    ChapterInfo chapterInfo = getChapterInfo(chapterJson);
+                                    lsrun_my = chapterInfo.getIsmy();
+                                }
+
                                 // 已购买
-                                if (indexMy == 1) {
+                                if (indexMy == 1 || lsrun_my == 1) {
                                     getChapter(nextCid, true);
                                 } else {
                                     // 未购买
