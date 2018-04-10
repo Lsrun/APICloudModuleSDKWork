@@ -2972,23 +2972,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
 
 
                                 //Lsrun 判断是否缓存章节内容
-                                int lsrun_my = 0;
-                                String chapterJson = BaseData.getCache("chapterJson" + mAid + chapterid);  /// 读取章节缓存
-                                if (CommFun.isNullOrEmpty(chapterJson)) {
-                                    /// 缓存为空
-                                    String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", mUid, mAid, chapterid);
-                                    String fullPath = savePath + "/" + fileName;
-                                    chapterJson = FileUtils.readFile(fullPath);
-
-                                    log("执行读取文件------");
-
-                                }
-                                log("读取到的文件======" + chapterJson);
-                                if (!CommFun.isNullOrEmpty(chapterJson)) {
-                                    ///  数据存在
-                                    ChapterInfo chapterInfo = getChapterInfo(chapterJson);
-                                    lsrun_my = chapterInfo.getIsmy();
-                                }
+                                int lsrun_my = isDownloadByApicloud(mUid,mAid,chapterid);
 
 
                                 if (hhh || lsrun_my == 1) {
@@ -3109,23 +3093,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                         if (indexVip == 1) {
 
                             //Lsrun 判断是否缓存章节内容
-                            int lsrun_my = 0;
-                            String chapterJson = BaseData.getCache("chapterJson" + mAid + previousCid);  /// 读取章节缓存
-                            if (CommFun.isNullOrEmpty(chapterJson)) {
-                                /// 缓存为空
-                                String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", mUid, mAid, previousCid);
-                                String fullPath = savePath + "/" + fileName;
-                                chapterJson = FileUtils.readFile(fullPath);
-
-                                log("执行读取文件------");
-
-                            }
-                            log("读取到的文件======" + chapterJson);
-                            if (!CommFun.isNullOrEmpty(chapterJson)) {
-                                ///  数据存在
-                                ChapterInfo chapterInfo = getChapterInfo(chapterJson);
-                                lsrun_my = chapterInfo.getIsmy();
-                            }
+                            int lsrun_my = isDownloadByApicloud(mUid,mAid,previousCid);
 
                             if (indexMy == 1 || lsrun_my == 1) {
                                 getChapter(previousCid, true);
@@ -3187,23 +3155,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                             if (indexVip == 1) {
 
                                 //Lsrun 判断是否缓存章节内容
-                                int lsrun_my = 0;
-                                String chapterJson = BaseData.getCache("chapterJson" + mAid + previousCid);  /// 读取章节缓存
-                                if (CommFun.isNullOrEmpty(chapterJson)) {
-                                    /// 缓存为空
-                                    String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", mUid, mAid, previousCid);
-                                    String fullPath = savePath + "/" + fileName;
-                                    chapterJson = FileUtils.readFile(fullPath);
-
-                                    log("执行读取文件------");
-
-                                }
-                                log("读取到的文件======" + chapterJson);
-                                if (!CommFun.isNullOrEmpty(chapterJson)) {
-                                    ///  数据存在
-                                    ChapterInfo chapterInfo = getChapterInfo(chapterJson);
-                                    lsrun_my = chapterInfo.getIsmy();
-                                }
+                                int lsrun_my = isDownloadByApicloud(mUid,mAid,nextCid);
 
                                 // 已购买
                                 if (indexMy == 1 || lsrun_my == 1) {
@@ -4305,6 +4257,37 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * 判断APIcloud是否已经下载该章节
+     * Lsrun
+     * 20180410
+     * @param uid
+     * @param aid
+     * @param cid
+     * @return 整型,是否已购买并下载
+     */
+    public int isDownloadByApicloud(int uid,int aid,int cid){
+        //Lsrun 判断是否缓存章节内容
+        int lsrun_my = 0;
+        String chapterJson = BaseData.getCache("chapterJson" + aid + cid);  /// 读取章节缓存
+        if (CommFun.isNullOrEmpty(chapterJson)) {
+            /// 缓存为空
+            String fileName = String.format(Locale.CHINA, "%d_%d_%d.txt", uid, aid, cid);
+            String fullPath = savePath + "/" + fileName;
+            chapterJson = FileUtils.readFile(fullPath);
+
+            log("执行读取文件------");
+
+        }
+        log("读取到的文件======" + chapterJson);
+        if (!CommFun.isNullOrEmpty(chapterJson)) {
+            ///  数据存在
+            ChapterInfo chapterInfo = getChapterInfo(chapterJson);
+            lsrun_my = chapterInfo.getIsmy();
+        }
+        return lsrun_my;
     }
 
 
