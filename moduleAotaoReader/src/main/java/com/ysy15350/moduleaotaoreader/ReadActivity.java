@@ -280,7 +280,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     /**
      * 是否启用调试
      */
-    public static boolean isDebug = false;
+    public static boolean isDebug = true;
 
     public static Button buttonBuy;
 
