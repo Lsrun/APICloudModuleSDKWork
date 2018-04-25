@@ -1204,7 +1204,7 @@ public class PageFactory {
             } else {
                 if (indexMy == 0 && vip == 1) {
                     if (Config.getIsDing(mContext, uid, aid)) {
-                        // 向前翻页 前一页面为vip页面且没有购买  提示购买
+                        // 向前翻页 前一页面为vip页面且没有购买  自动购买
                         if (mPageEvent != null) {
                             mPageEvent.onDing(bookList, 1);
                         }

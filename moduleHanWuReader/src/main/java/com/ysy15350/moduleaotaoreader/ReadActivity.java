@@ -280,7 +280,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     /**
      * 是否启用调试
      */
-    public static boolean isDebug = true;
+    public static boolean isDebug = false;
 
     public static Button buttonBuy;
 
@@ -300,25 +300,25 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         buttonBuy = (Button) findViewById(R.id.button_buy);
 
         Intent intent = getIntent();
-//        String url = intent.getStringExtra("url");
-//        String uid = intent.getStringExtra("uid");
-//        String aid = intent.getStringExtra("aid");
-//        String cid = intent.getStringExtra("cid");
-//
-//        String typeStr = intent.getStringExtra("type");
+        String url = intent.getStringExtra("url");
+        String uid = intent.getStringExtra("uid");
+        String aid = intent.getStringExtra("aid");
+        String cid = intent.getStringExtra("cid");
+
+        String typeStr = intent.getStringExtra("type");
 //测试数据
-//        String isDebugStr = intent.getStringExtra("isDebug");
-//
-//        String sign = intent.getStringExtra("sign");
+        String isDebugStr = intent.getStringExtra("isDebug");
+
+        String sign = intent.getStringExtra("sign");
         //
-        String url="https://www.hanwujinian.com/riku/reader";
-        String uid="300865";
-        String aid="10491";
-        String cid="221453";
-        String bookPath="fs://hwjn/article/10491";
-        String isDebugStr="";
-        String typeStr="1";
-        String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
+//        String url="https://www.hanwujinian.com/riku/reader";
+//        String uid="300865";
+//        String aid="10490";
+//        String cid="221453";
+//        String bookPath="fs://hwjn/article/10491";
+//        String isDebugStr="";
+//        String typeStr="1";
+//        String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
 
         if (!CommFun.isNullOrEmpty(isDebugStr)) {
             if ("true".equals(isDebugStr)) {
@@ -2250,6 +2250,16 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
             if (ismy == 0) {
                 return;
             }
+            //TODO 如果是vip章节判断是否为自动订阅
+            boolean isDing =  Config.getIsDing(this,mUid,mAid);
+            if(isDing){
+                /// 刷新目录信息
+                if (indexFragment != null) {
+                    /// 重新获取一次目录
+                    indexFragment.chapterlistAutoBuy(mAid);
+
+                }
+            }
         }
 
         String data = BaseData.getCache("chapterJson" + mAid + next);
@@ -3137,6 +3147,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                     log("是否自动订阅====" + isDing);
 
                     if (isDing) {
+
                         // 自动订阅数据
                         getChapter(nextCid, true);
 

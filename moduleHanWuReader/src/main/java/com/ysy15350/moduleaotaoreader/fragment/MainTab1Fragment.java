@@ -200,6 +200,58 @@ public class MainTab1Fragment extends BaseFragment implements AdapterView.OnItem
     }
 
     /**
+     * 自动购买章节并重新获取目录
+     * @param aid
+     */
+    public void chapterlistAutoBuy(int aid) {
+
+        ReadActivity.log( "刷新目录并自动购买=====" + aid);
+
+        mOkHttpClient = new OkHttpClient();
+
+        String url = String.format(Locale.US, "%s/autoBuyAllchapter.php?aid=%d&uid=%d&isUseAutoBuy=1", "http://www.hanwujinian.com/riku/ver6_2", aid, uid);
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = mOkHttpClient.newCall(request);
+
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String str = response.body().string();
+
+                ReadActivity.log( str);
+
+                if (getActivity() != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            if (!CommFun.isNullOrEmpty(str)) {
+
+                                BaseData.setCache("chapterlistJson" + mAid, str);
+
+                                getDirectoryInfo(str);
+
+                            }
+
+                        }
+                    });
+                }
+            }
+
+        });
+
+    }
+
+    /**
      * 当前章节
      */
     private DirectoryInfo mCurrentDirectoryInfo;
