@@ -2250,7 +2250,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
             if (ismy == 0) {
                 return;
             }
-            //TODO 如果是vip章节判断是否为自动订阅
+            //如果是vip章节判断是否为自动订阅
             boolean isDing =  Config.getIsDing(this,mUid,mAid);
             if(isDing){
                 /// 刷新目录信息
