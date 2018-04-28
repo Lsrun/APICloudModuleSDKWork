@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.RequiresPermission;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -202,7 +203,7 @@ public class BuyActivity extends Activity {
                         int code = jsonObject.optInt("status");
                         if (code == 1) {
                             tvBookName.setText(jsonObject.optString("articlename"));
-                            tvZhang.setText(jsonObject.optString("chaptername"));
+                            tvZhang.setText(jsonObject.optString("chaptername").replace("&nbsp;"," "));
                             String danwei = getResources().getString(R.string.page_sanyechongbi);
                             tvOld.setText(jsonObject.optString("yjsaleprice") + danwei);
                             tvNew.setText(jsonObject.optString("saleprice") + danwei);
