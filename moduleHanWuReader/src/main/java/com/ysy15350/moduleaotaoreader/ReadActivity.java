@@ -314,9 +314,9 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         //
         String url="https://www.hanwujinian.com/riku/reader";
         String uid="300865";
-        String aid="7970";
-        String cid="100503";
-        String bookPath="fs://hwjn/article/7970";
+        String aid="6471";
+        String cid="76886";
+        String bookPath="fs://hwjn/article/6471";
         String isDebugStr="";
         String typeStr="1";
         String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
@@ -2258,15 +2258,15 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         }
         if (vip == 1) {
             //如果是vip章节判断是否为自动订阅
-            boolean isDing =  Config.getIsDing(this,mUid,mAid);
-            if(isDing){
-                /// 刷新目录信息
-                if (indexFragment != null) {
-                    /// 重新获取一次目录
-                    indexFragment.chapterlistAutoBuy(mAid);
-
-                }
-            }
+//            boolean isDing =  Config.getIsDing(this,mUid,mAid);
+//            if(isDing){
+//                /// 刷新目录信息
+//                if (indexFragment != null) {
+//                    /// 重新获取一次目录
+//                    indexFragment.chapterlistAutoBuy(mAid);
+//
+//                }
+//            }
             if (ismy == 0) {
                 return;
             }
@@ -4004,7 +4004,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                                 }
 
                                 MessageBox.show(msg);
-
+                                MessageBox.hideWaitDialog();
                             }
                         });
                     }
