@@ -158,6 +158,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     private ImageView img_bookmark;//书签
     private View tv_menu;//菜单
 
+    private int isExistBookmark = 0;
 
     /**
      * 底部菜单
@@ -314,9 +315,9 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         //
         String url="https://www.hanwujinian.com/riku/reader";
         String uid="300865";
-        String aid="6471";
-        String cid="76886";
-        String bookPath="fs://hwjn/article/6471";
+        String aid="9126";
+        String cid="113888";
+        String bookPath="fs://hwjn/article/9126";
         String isDebugStr="";
         String typeStr="1";
         String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
@@ -633,22 +634,45 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                 int previous = model.getPrevious();
                 final int next = model.getNext();
 
-                currentCid = model.getCid(); // 当前章节
-                previousCid = model.getPrevious();  // 上一章节
-                nextCid = model.getNext();    // 下一章节
+                log("判断自动订阅====" + mUid);
 
-                if (isDebug) {
-                    MessageBox.show("loadBookCache: 加载前后两章数据,aid=" + aid + ",cid=" + cid + ",previous=" + previous + ",next=" + next);
+                boolean isDing = Config.getIsDing(this, mUid, aid);
+                int ismy = model.getIsmy();
+                int isvip = model.getIsvip();
+                if(isDing && isvip == 1 && ismy == 0 ){
+                    MessageBox.show("你还未购买本章节");
+                    // 未购买 提示 购买
+//                    Intent intent = new Intent(ReadActivity.this, BuyActivity.class);
+//                    intent.putExtra("aid", aid);
+//                    intent.putExtra("cid", cid);
+//                    intent.putExtra("uid", mUid);
+//                    intent.putExtra("url", SERVICE_URL);
+//
+//                    startActivityForResult(intent, 789);
+                    showVipBy(aid, cid);
+                    return;
+                }else {
+
+                    currentCid = model.getCid(); // 当前章节
+                    previousCid = model.getPrevious();  // 上一章节
+                    nextCid = model.getNext();    // 下一章节
+
+                    if (isDebug) {
+                        MessageBox.show("loadBookCache: 加载前后两章数据,aid=" + aid + ",cid=" + cid + ",previous=" + previous + ",next=" + next);
+                    }
+
+                    if (previous != 0) {
+                        cacheNext(previousCid, model.getPremy(), model.getPrevip());
+                    }
+
+                    if (next != 0) {
+                        if(isDing && isvip == 1 && ismy!=1){
+
+                        }else {
+                            cacheNext(next, model.getNextmy(), model.getNextvip());
+                        }
+                    }
                 }
-
-                if (previous != 0) {
-                    cacheNext(previousCid, model.getPremy(), model.getPrevip());
-                }
-
-                if (next != 0) {
-                    cacheNext(next, model.getNextmy(), model.getNextvip());
-                }
-
             }
 
         }
@@ -1045,7 +1069,6 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                 mAid = aid;
                 mCid = cid;
                 loadBookCache(aid, cid);    /// 缓存前后章节
-
             }
 
             @Override
@@ -1378,7 +1401,6 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         }
 
     }
-
 
     int indexCode = 0;
 
@@ -1975,8 +1997,10 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     private void checkBookMark(BookMark bookMark) {
         BookMark isBookMark = getBookMarkByPage(bookMark);
         if (isBookMark != null) {
+            isExistBookmark = 1;
             img_bookmark.setImageResource(R.mipmap.mo_aotao_reader_icon_book_mark_1);
         } else {
+            isExistBookmark = 0;
             img_bookmark.setImageResource(R.mipmap.mo_aotao_reader_icon_book_mark);
         }
 
@@ -2043,7 +2067,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         isFirst = false;
 
         try {
-            if (chapterInfo != null) {
+            if (chapterInfo != null && (chapterInfo.getIsvip()==0 || chapterInfo.getIsmy()==1)) {
 
                 DbUtil.getInstence(this).saveCache(chapterInfo.getCid(), mAid, mUid);
 
@@ -2060,6 +2084,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                 String content = chapterInfo.getContent();
 
                 if (!CommFun.isNullOrEmpty(content)) {
+
 
                     log("获取html-----" + content);
 
@@ -2200,7 +2225,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
 
                         if (bookList != null) {
 
-                            if (bookList.getIsmy() == 0 && bookList.getIsvip() == 1) {
+                            if ( (bookList.getIsmy() == 0 && bookList.getIsvip() == 1 ) || (chapterInfo.getIsvip() == 1 &&chapterInfo.getIsmy() == 0)) {
 
                                 showIsBuy(bookList, 0);
 
@@ -2258,15 +2283,15 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         }
         if (vip == 1) {
             //如果是vip章节判断是否为自动订阅
-//            boolean isDing =  Config.getIsDing(this,mUid,mAid);
-//            if(isDing){
-//                /// 刷新目录信息
-//                if (indexFragment != null) {
-//                    /// 重新获取一次目录
-//                    indexFragment.chapterlistAutoBuy(mAid);
-//
-//                }
-//            }
+            boolean isDing =  Config.getIsDing(this,mUid,mAid);
+            if(isDing){
+                /// 刷新目录信息
+                if (indexFragment != null) {
+                    /// 重新获取一次目录
+                    indexFragment.chapterlistAutoBuy(mAid);
+
+                }
+            }
             if (ismy == 0) {
                 return;
             }
@@ -2381,7 +2406,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     private void bindChapterInfo(ChapterInfo chapterInfo, boolean isOpenBook) {
 
         try {
-            if (chapterInfo != null) {
+            if (chapterInfo != null && (chapterInfo.getIsvip()==0 || chapterInfo.getIsmy()==1)) {
                 int status = chapterInfo.getStatus();
                 String msg = chapterInfo.getMsg();
 
@@ -2806,9 +2831,13 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                 }
 
                 if (chapterInfo != null) {
-                    // 本地对象存在,显示本地数据
-                    bindChapterInfo(chapterInfo, isOpenBook);
-
+                    if(chapterInfo.getIsvip() == 1 && chapterInfo.getIsmy()==0){
+                        showVipBy(mAid, cid);
+                        return;
+                    }else {
+                        // 本地对象存在,显示本地数据
+                        bindChapterInfo(chapterInfo, isOpenBook);
+                    }
                 } else {
                     if (network_type != -1) {
                         if (isOpenBook) {
@@ -3159,11 +3188,16 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                     log("是否自动订阅====" + isDing);
 
                     if (isDing) {
+                        boolean hhh = DbUtil.getInstence(this).isHas(nextCid, mAid, mUid);
+                        log("自动购买余额判断+++" + hhh);
+                        if(hhh) {
+                            // 自动订阅数据
+                            getChapter(nextCid, true);
 
-                        // 自动订阅数据
-                        getChapter(nextCid, true);
-
-                        DbUtil.getInstence(this).save(nextCid, mAid, mUid);
+                            DbUtil.getInstence(this).save(nextCid, mAid, mUid);
+                        }else{
+                            MessageBox.show("余额不足");
+                        }
 
                     } else {
                         boolean hhh = DbUtil.getInstence(this).isHas(nextCid, mAid, mUid);
