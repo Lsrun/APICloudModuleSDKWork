@@ -79,6 +79,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -280,7 +281,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     /**
      * 是否启用调试
      */
-    public static boolean isDebug = false;
+    public static boolean isDebug = true;
 
     public static Button buttonBuy;
 
@@ -300,25 +301,25 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         buttonBuy = (Button) findViewById(R.id.button_buy);
 
         Intent intent = getIntent();
-        String url = intent.getStringExtra("url");
-        String uid = intent.getStringExtra("uid");
-        String aid = intent.getStringExtra("aid");
-        String cid = intent.getStringExtra("cid");
-
-        String typeStr = intent.getStringExtra("type");
-//测试数据
-        String isDebugStr = intent.getStringExtra("isDebug");
-
-        String sign = intent.getStringExtra("sign");
+//        String url = intent.getStringExtra("url");
+//        String uid = intent.getStringExtra("uid");
+//        String aid = intent.getStringExtra("aid");
+//        String cid = intent.getStringExtra("cid");
+//
+//        String typeStr = intent.getStringExtra("type");
+////测试数据
+//        String isDebugStr = intent.getStringExtra("isDebug");
+//
+//        String sign = intent.getStringExtra("sign");
         //
-//        String url="https://www.hanwujinian.com/riku/reader";
-//        String uid="300865";
-//        String aid="10490";
-//        String cid="221453";
-//        String bookPath="fs://hwjn/article/10491";
-//        String isDebugStr="";
-//        String typeStr="1";
-//        String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
+        String url="https://www.hanwujinian.com/riku/reader";
+        String uid="300865";
+        String aid="7970";
+        String cid="100503";
+        String bookPath="fs://hwjn/article/7970";
+        String isDebugStr="";
+        String typeStr="1";
+        String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
 
         if (!CommFun.isNullOrEmpty(isDebugStr)) {
             if ("true".equals(isDebugStr)) {
@@ -1453,6 +1454,14 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+
+                log("收到的数据======"+response.toString());
+
+//                showMsg(str);
+
+                log("获取到的数据response=====" + str);
+
                 getChapter(cid, false);
 
             }
@@ -2243,13 +2252,11 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
      * @param next 章节id
      */
     private void cacheNext(int next, int ismy, int vip) {
+        log("缓存章节:"+next+"---"+ismy+"___"+vip);
         if (next == 0) {
             return;
         }
         if (vip == 1) {
-            if (ismy == 0) {
-                return;
-            }
             //如果是vip章节判断是否为自动订阅
             boolean isDing =  Config.getIsDing(this,mUid,mAid);
             if(isDing){
@@ -2260,7 +2267,12 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
 
                 }
             }
+            if (ismy == 0) {
+                return;
+            }
         }
+
+        log("进行缓存:"+next);
 
         String data = BaseData.getCache("chapterJson" + mAid + next);
         if (data == null) {
@@ -2886,7 +2898,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                 final String str = response.body().string();
                 ReadActivity.this.isOpenBook = isOpen;
 
-                log(str);
+                log("缓存章节==="+str);
 
                 Message message = mHandler.obtainMessage();
                 message.obj = str;
@@ -2985,7 +2997,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                                 int lsrun_my = isDownloadByApicloud(mUid,mAid,chapterid);
 
 
-                                if (hhh || lsrun_my == 1) {
+                                if (hhh) {
                                     // 直接阅读
                                     getChapter(chapterid, true);
 
@@ -3105,7 +3117,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                             //Lsrun 判断是否缓存章节内容
                             int lsrun_my = isDownloadByApicloud(mUid,mAid,previousCid);
 
-                            if (indexMy == 1 || lsrun_my == 1) {
+                            if (indexMy == 1) {
                                 getChapter(previousCid, true);
                             } else {
                                 showVipBy(mAid, bookList.getPrevious());
@@ -3169,7 +3181,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                                 int lsrun_my = isDownloadByApicloud(mUid,mAid,nextCid);
 
                                 // 已购买
-                                if (indexMy == 1 || lsrun_my == 1) {
+                                if (indexMy == 1 ) {
                                     getChapter(nextCid, true);
                                 } else {
                                     // 未购买

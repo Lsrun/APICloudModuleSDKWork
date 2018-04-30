@@ -1198,7 +1198,7 @@ public class PageFactory {
             ReadActivity lsrun_readActivity = new ReadActivity();
             int lsrun_ismy = lsrun_readActivity.isDownloadByApicloud(uid,aid,nextCid);
 
-            if (hhh || lsrun_ismy==1) {
+            if (hhh) {
                 // 该章节在本地数据库中已购买
 
             } else {
@@ -1296,7 +1296,7 @@ public class PageFactory {
             ReadActivity lsrun_readActivity = new ReadActivity();
             int lsrun_ismy = lsrun_readActivity.isDownloadByApicloud(uid,aid,nextCid);
 
-            if (hhh || lsrun_ismy==1) {
+            if (hhh ) {
                 // 下一章节已在本地存在，直接阅读
             } else {
                 if (my == 0 && vip == 1) {
