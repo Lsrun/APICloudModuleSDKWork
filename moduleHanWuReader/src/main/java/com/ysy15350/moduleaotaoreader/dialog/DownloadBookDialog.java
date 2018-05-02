@@ -35,6 +35,7 @@ public class DownloadBookDialog extends Dialog {
     private View conentView;
     private ViewHolder mHolder;
     List<ChapterBlockInfo> listData;
+    private boolean isInsufficient = false;//判断是否余额不足 true 余额不足 false 余额充足
 
 
     private DownloadBookDialog(Context context, boolean flag, OnCancelListener listener) {
@@ -95,8 +96,12 @@ public class DownloadBookDialog extends Dialog {
                 if (mSelectChapterBlockInfo != null) {
 
                     if (mListener != null) {
-                        mListener.itemClick(mSelectChapterBlockInfo);
-
+                        if(isInsufficient){
+                            MessageBox.show("余额不足,请及时充值!");
+                            MessageBox.hideWaitDialog();
+                        }else {
+                            mListener.itemClick(mSelectChapterBlockInfo);
+                        }
                     }
                 } else {
                     MessageBox.show("请选择下载章节");
@@ -173,8 +178,10 @@ public class DownloadBookDialog extends Dialog {
             /// 需要的总金额
             if (chapterBlockInfo.getSumprice() > account) {
                 mHolder.setText(R.id.btn_ok, "余额不足，点击充值");
+                isInsufficient = true;
             } else {
                 mHolder.setText(R.id.btn_ok, "下载");
+                isInsufficient = false;
             }
 
         }
