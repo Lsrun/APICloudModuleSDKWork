@@ -103,6 +103,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import thread.uncaughtexceptionhandler.CrashCatchHandler;
 
 /**
  * 文章读取界面
@@ -116,6 +117,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
      */
     public static float tuCaoProgress = 0f;
 
+    private static ArrayList<Activity> activities;
     @Override
     protected ReadPresenter createPresenter() {
         return new ReadPresenter(ReadActivity.this);
@@ -416,6 +418,8 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
 //        log("json数据------"+json);
 //
 
+//        初始化全局异常捕获器
+        CrashCatchHandler.getInstance().init(this);
 
     }
 
@@ -2316,6 +2320,11 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
             setOkHttp();
         }
 
+        checkNetWork();
+        if(network_type == -1){
+            return;
+        }
+
         String sign = CommonUtil.getMd5Sign(mAid, next);   // md5(秘钥#作品ID#章节ID)
 
         String url = String.format(Locale.CHINA, "%s/chapter.php?aid=%d&cid=%d&uid=%d&sign=%s", SERVICE_URL, mAid, next, mUid, sign);
@@ -2891,6 +2900,11 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
      */
     private void chapter(int cid, final boolean isOpen) {
 
+        checkNetWork();
+        if(network_type == -1){
+            return;
+        }
+
         if (mOkHttpClient == null) {
             setOkHttp();
         }
@@ -3071,7 +3085,6 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                 intent.putExtra("cid", cid);
                 intent.putExtra("uid", mUid);
                 intent.putExtra("url", SERVICE_URL);
-
                 startActivityForResult(intent, 789);
 
             }
@@ -4347,5 +4360,17 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         return lsrun_my;
     }
 
+    /**添加activity*/
+    public static void addActivity(Activity activity) {
+        activities.add(activity);
+    }
+
+    /**结束所有被添加的activity*/
+    public static void clearActivity() {
+        MessageBox.show("111111111111111");
+        for (Activity activity : activities) {
+            activity.finish();
+        }
+    }
 
 }
