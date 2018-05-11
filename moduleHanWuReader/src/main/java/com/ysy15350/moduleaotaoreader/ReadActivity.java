@@ -1282,8 +1282,6 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
             // 触发操作，拖动
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                pro = (float) (progress / 10000);
-
             }
 
             // 表示进度条刚开始拖动，开始拖动时候触发的操作
