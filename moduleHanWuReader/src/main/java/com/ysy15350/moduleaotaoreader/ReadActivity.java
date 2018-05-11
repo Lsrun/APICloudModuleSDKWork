@@ -3201,16 +3201,11 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
                     log("是否自动订阅====" + isDing);
 
                     if (isDing) {
-                        boolean hhh = DbUtil.getInstence(this).isHas(nextCid, mAid, mUid);
-                        log("自动购买余额判断+++" + hhh);
-                        if(hhh) {
-                            // 自动订阅数据
-                            getChapter(nextCid, true);
+                        // 自动订阅数据
+                        getChapter(nextCid, true);
 
-                            DbUtil.getInstence(this).save(nextCid, mAid, mUid);
-                        }else{
-                            MessageBox.show("余额不足");
-                        }
+                        DbUtil.getInstence(this).save(nextCid, mAid, mUid);
+
 
                     } else {
                         boolean hhh = DbUtil.getInstence(this).isHas(nextCid, mAid, mUid);
