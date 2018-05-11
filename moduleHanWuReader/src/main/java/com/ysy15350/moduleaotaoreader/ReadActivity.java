@@ -2320,10 +2320,10 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
             setOkHttp();
         }
 
-        checkNetWork();
-        if(network_type == -1){
-            return;
-        }
+//        checkNetWork();
+//        if(network_type == -1){
+//            return;
+//        }
 
         String sign = CommonUtil.getMd5Sign(mAid, next);   // md5(秘钥#作品ID#章节ID)
 
@@ -2900,10 +2900,10 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
      */
     private void chapter(int cid, final boolean isOpen) {
 
-        checkNetWork();
-        if(network_type == -1){
-            return;
-        }
+//        checkNetWork();
+//        if(network_type == -1){
+//            return;
+//        }
 
         if (mOkHttpClient == null) {
             setOkHttp();
