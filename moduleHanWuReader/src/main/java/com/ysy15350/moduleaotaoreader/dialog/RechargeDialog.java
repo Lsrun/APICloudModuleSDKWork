@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.google.gson.Gson;
+import com.google.hwgson.Gson;
 import com.uzmap.pkg.uzcore.UZWebView;
 import com.uzmap.pkg.uzcore.uzmodule.UZModule;
 import com.ysy15350.moduleaotaoreader.APIModuleReader;

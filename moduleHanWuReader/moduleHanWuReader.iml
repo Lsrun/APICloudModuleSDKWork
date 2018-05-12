@@ -88,17 +88,20 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\okhttp-3.2.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-25.0.1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-annotations:25.0.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\hwgson.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\hwokio.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-ui-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\gson-2.2.4.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-v4-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\okio-1.6.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-25.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\universal-image-loader-1.9.3.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\okhttp-3.2.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-25.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-annotations:25.0.1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\hwokhttp.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\app\libs\apiEngine v1.1.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-utils-25.0.1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: __local_jars__:E.\AndroidWorkSpace\APICloudModuleSDKWork\moduleHanWuReader\libs\universal-image-loader-1.9.3.jar:unspecified@jar" level="project" />
   </component>
 </module>

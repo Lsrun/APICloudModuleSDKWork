@@ -25,11 +25,11 @@ import common.CommFun;
 import common.file.FileUtils;
 import common.message.MessageBox;
 import common.string.JsonConvertor;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import hwokhttp.Call;
+import hwokhttp.Callback;
+import hwokhttp.OkHttpClient;
+import hwokhttp.Request;
+import hwokhttp.Response;
 
 
 /**
