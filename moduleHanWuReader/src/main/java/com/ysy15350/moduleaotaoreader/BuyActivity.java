@@ -239,6 +239,13 @@ public class BuyActivity extends Activity {
                                 }
                             }, 1500);
 
+                        }else if(string == "很抱歉，购买失败，您已经购买过该章节了"){
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    BuyActivity.this.finish();
+                                }
+                            }, 1500);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
