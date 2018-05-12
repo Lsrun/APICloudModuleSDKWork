@@ -1,57 +1,57 @@
 <resources>
-    <string name="app_name">moduleAotaoReader</string>
+    <string name="app_name" translatable="false">moduleAotaoReader</string>
 
-    <string name="read_content_default">-</string>
-    <string name="read_num_default">0</string>
+    <string name="read_content_default" translatable="false">-</string>
+    <string name="read_num_default" translatable="false">0</string>
 
-    <string name="read_setting_directory">目录</string>
-    <string name="read_setting_night">夜间</string>
-    <string name="read_setting_day">日间</string>
-    <string name="read_setting_pagemode">翻页</string>
-    <string name="read_setting_set">设置</string>
-    <string name="read_setting_download">下载</string>
-    <string name="read_setting_pre">上一章</string>
-    <string name="read_setting_next">下一章</string>
+    <string name="read_setting_directory" translatable="false">目录</string>
+    <string name="read_setting_night" translatable="false">夜间</string>
+    <string name="read_setting_day" translatable="false">日间</string>
+    <string name="read_setting_pagemode" translatable="false">翻页</string>
+    <string name="read_setting_set" translatable="false">设置</string>
+    <string name="read_setting_download" translatable="false">下载</string>
+    <string name="read_setting_pre" translatable="false">上一章</string>
+    <string name="read_setting_next" translatable="false">下一章</string>
 
-    <string name="setting_system">系统</string>
-    <string name="setting_dark">暗</string>
-    <string name="setting_bright">亮</string>
+    <string name="setting_system" translatable="false">系统</string>
+    <string name="setting_dark" translatable="false">暗</string>
+    <string name="setting_bright" translatable="false">亮</string>
     <string name="setting_add">A+</string>
     <string name="setting_subtract">A-</string>
-    <string name="setting_default">默认</string>
+    <string name="setting_default" translatable="false">默认</string>
 
-    <string name="font_default">系统默认</string>
-    <string name="font_qihei">羿创旗黑</string>
-    <string name="font_xinshou">新宋体</string>
-    <string name="font_wawa">娃娃体</string>
-    <string name="font_fzxinghei">行黑</string>
-    <string name="font_fzkatong">卡通</string>
-    <string name="font_bysong">繁宋中文</string>
+    <string name="font_default" translatable="false">系统默认</string>
+    <string name="font_qihei" translatable="false">羿创旗黑</string>
+    <string name="font_xinshou" translatable="false">新宋体</string>
+    <string name="font_wawa" translatable="false">娃娃体</string>
+    <string name="font_fzxinghei" translatable="false">行黑</string>
+    <string name="font_fzkatong" translatable="false">卡通</string>
+    <string name="font_bysong" translatable="false">繁宋中文</string>
 
-    <string name="page_mode_simulation">仿真</string>
-    <string name="page_mode_cover">覆盖</string>
-    <string name="page_mode_slide">滑动</string>
-    <string name="page_mode_none">无</string>
+    <string name="page_mode_simulation" translatable="false">仿真</string>
+    <string name="page_mode_cover" translatable="false">覆盖</string>
+    <string name="page_mode_slide" translatable="false">滑动</string>
+    <string name="page_mode_none" translatable="false">无</string>
 
-    <string name="readseting">设置</string>
+    <string name="readseting" translatable="false">设置</string>
 
 
     <!-- 下拉刷新 -->
-    <string name="header_hint_refresh_normal">下拉刷新</string>
-    <string name="header_hint_refresh_ready">松开刷新数据</string>
-    <string name="header_hint_refresh_loading">正在加载...</string>
-    <string name="header_hint_refresh_time">上次更新时间：</string>
-    <string name="footer_hint_load_normal">查看更多</string>
-    <string name="footer_hint_load_ready">松开载入更多</string>
-    <string name="page_sanyechongbi">三页虫币</string>
-    <string name="buy_queren">确认购买</string>
-    <string name="page_zuopin">作品</string>
-    <string name="page_zhangjie">章节</string>
-    <string name="page_old_price">原价</string>
-    <string name="page_now_price">现价</string>
-    <string name="page_buy_user">购买用户</string>
-    <string name="page_user_money">现有余额</string>
-    <string name="page_ding">订阅选项</string>
+    <string name="header_hint_refresh_normal" translatable="false">下拉刷新</string>
+    <string name="header_hint_refresh_ready" translatable="false">松开刷新数据</string>
+    <string name="header_hint_refresh_loading" translatable="false">正在加载...</string>
+    <string name="header_hint_refresh_time" translatable="false">上次更新时间：</string>
+    <string name="footer_hint_load_normal" translatable="false">查看更多</string>
+    <string name="footer_hint_load_ready" translatable="false">松开载入更多</string>
+    <string name="page_sanyechongbi" translatable="false">三页虫币</string>
+    <string name="buy_queren" translatable="false">确认购买</string>
+    <string name="page_zuopin" translatable="false">作品</string>
+    <string name="page_zhangjie" translatable="false">章节</string>
+    <string name="page_old_price" translatable="false">原价</string>
+    <string name="page_now_price" translatable="false">现价</string>
+    <string name="page_buy_user" translatable="false">购买用户</string>
+    <string name="page_user_money" translatable="false">现有余额</string>
+    <string name="page_ding" translatable="false">订阅选项</string>
 
 
 </resources>
