@@ -40,7 +40,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.hwgson.reflect.TypeToken;
+import com.google.gson.reflect.TypeToken;
 import com.ysy15350.moduleaotaoreader.db.BookList;
 import com.ysy15350.moduleaotaoreader.db.DbUtil;
 import com.ysy15350.moduleaotaoreader.dialog.DownloadBookDialog;
@@ -97,12 +97,12 @@ import common.message.MessageBox;
 import common.string.JsonConvertor;
 import common.string.MD5Util;
 import custom_view.dialog.ConfirmDialog;
-import hwokhttp.Cache;
-import hwokhttp.Call;
-import hwokhttp.Callback;
-import hwokhttp.OkHttpClient;
-import hwokhttp.Request;
-import hwokhttp.Response;
+import okhttp3.Cache;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import thread.uncaughtexceptionhandler.CrashCatchHandler;
 
 /**
@@ -284,7 +284,7 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
     /**
      * 是否启用调试
      */
-    public static boolean isDebug = false;
+    public static boolean isDebug = true;
 
     public static Button buttonBuy;
 
@@ -304,25 +304,25 @@ public class ReadActivity extends MVPBaseActivity<ReadViewInterface, ReadPresent
         buttonBuy = (Button) findViewById(R.id.button_buy);
 
         Intent intent = getIntent();
-        String url = intent.getStringExtra("url");
-        String uid = intent.getStringExtra("uid");
-        String aid = intent.getStringExtra("aid");
-        String cid = intent.getStringExtra("cid");
-
-        String typeStr = intent.getStringExtra("type");
-//测试数据
-        String isDebugStr = intent.getStringExtra("isDebug");
-
-        String sign = intent.getStringExtra("sign");
+//        String url = intent.getStringExtra("url");
+//        String uid = intent.getStringExtra("uid");
+//        String aid = intent.getStringExtra("aid");
+//        String cid = intent.getStringExtra("cid");
+//
+//        String typeStr = intent.getStringExtra("type");
+////测试数据
+//        String isDebugStr = intent.getStringExtra("isDebug");
+//
+//        String sign = intent.getStringExtra("sign");
         //
-//        String url="https://www.hanwujinian.com/riku/reader";
-//        String uid="300865";
-//        String aid="9126";
-//        String cid="113888";
-//        String bookPath="fs://hwjn/article/9126";
-//        String isDebugStr="";
-//        String typeStr="1";
-//        String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
+        String url="https://www.hanwujinian.com/riku/reader";
+        String uid="300865";
+        String aid="9126";
+        String cid="113888";
+        String bookPath="fs://hwjn/article/9126";
+        String isDebugStr="";
+        String typeStr="1";
+        String sign="cUa3dixDR7nHTcX3gZ5SBHfga04SvW0u";
 
         if (!CommFun.isNullOrEmpty(isDebugStr)) {
             if ("true".equals(isDebugStr)) {

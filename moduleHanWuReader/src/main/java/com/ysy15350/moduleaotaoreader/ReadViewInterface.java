@@ -1,6 +1,6 @@
 package com.ysy15350.moduleaotaoreader;
 
-import hwokhttp.Response;
+import okhttp3.Response;
 
 public interface ReadViewInterface {
 
