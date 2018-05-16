@@ -2,15 +2,15 @@ package common.string;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.hwgson.Gson;
+import com.google.hwgson.GsonBuilder;
+import com.google.hwgson.JsonDeserializationContext;
+import com.google.hwgson.JsonDeserializer;
+import com.google.hwgson.JsonElement;
+import com.google.hwgson.JsonParseException;
+import com.google.hwgson.JsonPrimitive;
+import com.google.hwgson.JsonSerializationContext;
+import com.google.hwgson.JsonSerializer;
 
 import java.lang.reflect.Type;
 import java.text.DateFormat;

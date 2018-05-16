@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.google.gson.reflect.TypeToken;
+import com.google.hwgson.reflect.TypeToken;
 import com.ysy15350.moduleaotaoreader.R;
 import com.ysy15350.moduleaotaoreader.ReadActivity;
 import com.ysy15350.moduleaotaoreader.adapters.ListViewAdpater_BookMark;
@@ -25,7 +25,7 @@ import common.CommFun;
 import common.CommFunAndroid;
 import common.string.JsonConvertor;
 import custom_view.x_view.XListView;
-import okhttp3.OkHttpClient;
+import hwokhttp.OkHttpClient;
 
 
 /**

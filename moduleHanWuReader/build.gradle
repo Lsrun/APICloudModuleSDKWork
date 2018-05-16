@@ -29,7 +29,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     provided files('../app/libs/apiEngine v1.1.0.jar')
     compile 'com.android.support:support-v4:25.0.1'
-    compile files('libs/okhttp-3.2.0.jar')
-    compile files('libs/gson-2.2.4.jar')
-    compile files('libs/okio-1.6.0.jar')
+    compile files('libs/hwgson.jar')
+    compile files('libs/hwokhttp.jar')
+    compile files('libs/hwokio.jar')
 }
