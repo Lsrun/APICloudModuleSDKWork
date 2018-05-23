@@ -17,8 +17,13 @@ import android.widget.TextView;
 
 import com.ysy15350.moduleaotaoreader.Config;
 import com.ysy15350.moduleaotaoreader.R;
+import com.ysy15350.moduleaotaoreader.ReadActivity;
+import com.ysy15350.moduleaotaoreader.util.BrightnessUtil;
 import com.ysy15350.moduleaotaoreader.util.DisplayUtils;
+import com.ysy15350.moduleaotaoreader.util.PageFactory;
 import com.ysy15350.moduleaotaoreader.view.CircleImageView;
+
+import common.message.MessageBox;
 
 
 public class SettingDialog extends Dialog implements View.OnClickListener {
@@ -171,7 +176,7 @@ public class SettingDialog extends Dialog implements View.OnClickListener {
         sb_brightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (progress > 10) {
+                if (progress >= 0) {
                     changeBright(false, progress);
                 }
             }
@@ -736,5 +741,4 @@ public class SettingDialog extends Dialog implements View.OnClickListener {
 
         void changeTextColor(int type);
     }
-
 }

@@ -25,6 +25,7 @@ import com.ysy15350.moduleaotaoreader.R;
 import com.ysy15350.moduleaotaoreader.ReadActivity;
 import com.ysy15350.moduleaotaoreader.db.BookList;
 import com.ysy15350.moduleaotaoreader.db.DbUtil;
+import com.ysy15350.moduleaotaoreader.dialog.SettingDialog;
 import com.ysy15350.moduleaotaoreader.model.FlagInfo;
 import com.ysy15350.moduleaotaoreader.model.ParagraphInfo;
 import com.ysy15350.moduleaotaoreader.model.ViewCount;
@@ -1083,7 +1084,6 @@ public class PageFactory {
      */
     private String disposeStr(String drawTextStr) {
         String result;
-
         if (drawTextStr.contains("##{")) {
 
             int lastLen = drawTextStr.lastIndexOf("}");
@@ -1091,16 +1091,29 @@ public class PageFactory {
             String ss = drawTextStr.substring(0, lastLen + 1);
 
             Log.i("result", "长度------" + lastLen + "截取-----" + ss);
-            result = drawTextStr.replace(ss, "\u3000\u3000");
+            if(config.getTypefacePath() == "font/simsun.ttf") {
+                result = drawTextStr.replace(ss, "\u3000\u3000");
+            }else{
+                result = drawTextStr.replace(ss, "\u3000\u3000\u3000\u3000");
+            }
 //            result = drawTextStr.replace(ss, "\u0020\u0020");
 
         } else {
 
             if (drawTextStr.startsWith("$$$")) {
 //                result = drawTextStr.replace("$$$", "\u3000");
-                result = drawTextStr.replace("$$$", "\u0020");
+//                result = drawTextStr.replace("$$$", "\u0020");
+                if(config.getTypefacePath() == "font/simsun.ttf"){
+                    result = drawTextStr.replace("$$$", "");
+                }else{
+                    result = drawTextStr.replace("$$$", "\u3000");
+                }
             } else {
-                result = drawTextStr;
+                if(drawTextStr.startsWith("    ")){
+                    result = drawTextStr.replace("    ", "\u3000\u3000");
+                }else {
+                    result = drawTextStr;
+                }
             }
         }
 
@@ -1601,7 +1614,7 @@ public class PageFactory {
                 width += widthChar;
                 if (width > mVisibleWidth) {
                     if(line.startsWith("$$$")){
-                        if( (width-widthChar*2) > mVisibleWidth){
+                        if( (width-widthChar*1) > mVisibleWidth){
                             width = widthChar;
                             linesList.add(line);
                             line = String.valueOf(word);

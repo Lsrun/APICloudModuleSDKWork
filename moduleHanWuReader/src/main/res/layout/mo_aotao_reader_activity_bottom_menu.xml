@@ -104,7 +104,7 @@
                 android:drawableTop="@mipmap/mo_aotao_reader_dayornight"
                 android:gravity="center"
                 android:text="@string/read_setting_night"
-                android:visibility="gone" />
+                 />
 
             <TextView
                 android:id="@+id/tv_pagemode"
