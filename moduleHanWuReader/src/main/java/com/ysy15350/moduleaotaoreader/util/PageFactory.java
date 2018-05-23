@@ -782,7 +782,7 @@ public class PageFactory {
 
             /// 循环绘制每一行数据
             for (int d = 0; d < strLen; d++) {
-
+                
                 String strLine = m_lines.get(d);
 
                 /// 绘制时，去除段落结束标记
@@ -1096,7 +1096,8 @@ public class PageFactory {
         } else {
 
             if (drawTextStr.startsWith("$$$")) {
-                result = drawTextStr.replace("$$$", "\u3000");
+//                result = drawTextStr.replace("$$$", "\u3000");
+                result = drawTextStr.replace("$$$", "");
             } else {
                 result = drawTextStr;
             }
