@@ -1092,12 +1092,13 @@ public class PageFactory {
 
             Log.i("result", "长度------" + lastLen + "截取-----" + ss);
             result = drawTextStr.replace(ss, "\u3000\u3000");
+//            result = drawTextStr.replace(ss, "\u0020\u0020");
 
         } else {
 
             if (drawTextStr.startsWith("$$$")) {
 //                result = drawTextStr.replace("$$$", "\u3000");
-                result = drawTextStr.replace("$$$", "");
+                result = drawTextStr.replace("$$$", "\u0020");
             } else {
                 result = drawTextStr;
             }
@@ -1599,9 +1600,19 @@ public class PageFactory {
                 float widthChar = mPaint.measureText(String.valueOf(word));
                 width += widthChar;
                 if (width > mVisibleWidth) {
-                    width = widthChar;
-                    linesList.add(line);
-                    line = String.valueOf(word);
+                    if(line.startsWith("$$$")){
+                        if( (width-widthChar*2) > mVisibleWidth){
+                            width = widthChar;
+                            linesList.add(line);
+                            line = String.valueOf(word);
+                        }else{
+                            line += String.valueOf(word);
+                        }
+                    }else{
+                        width = widthChar;
+                        linesList.add(line);
+                        line = String.valueOf(word);
+                    }
 
                 } else {
 
